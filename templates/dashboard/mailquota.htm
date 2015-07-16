@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title"><i class="fa fa-inbox"></i> {tmpl_var name='mailquota_txt'}</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table list">
+            <thead>
+                <tr>
+                    <td>{tmpl_var name='email_txt'}</td>
+                    <td>{tmpl_var name='name_txt'}</td>
+                    <td>{tmpl_var name='used_txt'}</td>
+                    <td>{tmpl_var name='quota_txt'}</td>
+                </tr>
+            </thead>
+            <tmpl_if name="has_mailquota">
+                <tmpl_loop name='mailquota'>
+                    <tr>
+                        <td>{tmpl_var name='email'}</td>
+                        <td>{tmpl_var name='name'}</td>
+                        <td>{tmpl_var name='used'}</td>
+                        <td>{tmpl_var name='quota'}</td>
+                    </tr>
+                </tmpl_loop>
+            <tmpl_else>
+                <tr>
+                    <td colspan="4" style="text-align:center;">{tmpl_var name='no_email_accounts_txt'}</td>
+                </tr>
+            </tmpl_if>
+        </table>
+    </div>
+</div>

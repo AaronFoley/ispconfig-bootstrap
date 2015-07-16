@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title"><i class="fa fa-bar-chart"></i> {tmpl_var name='limits_txt'}</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table list">
+            <tmpl_loop name='rows'>
+                <tr>
+                    <td>{tmpl_var name='field_txt'}</td>
+                    <td style="white-space: nowrap">{tmpl_var name='usage'} {tmpl_var name='of_txt'} {tmpl_var name='value'}</td>
+                </tr>
+            </tmpl_loop>
+        </table>
+    </div>
+</div>
