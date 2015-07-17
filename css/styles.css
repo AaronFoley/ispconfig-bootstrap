@@ -156,7 +156,7 @@
 {
     position: inherit;
     margin: -20px 0 0 251px;
-    padding: 30px;
+    padding: 1px 30px;
     border-left: 1px solid #e7e7e7;
     min-height: 865px;
     background-color: #fff;
@@ -166,4 +166,24 @@ footer
 {
     width: 100%;
     text-align: center;
+}
+
+.pageForm_description
+{
+    display: none;
+}
+
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
+
+.checkbox > input[type=checkbox]
+{
+    margin-left: 0;
 }

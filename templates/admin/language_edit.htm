@@ -1,0 +1,27 @@
+<div class='page-header'>
+    <h1>Language File Edit: {tmpl_var name="file_path"}</h1>
+</div>
+
+<div class="form-horizontal">
+
+    <tmpl_loop name="records">
+        <div class="form-group">
+            <label for="records[{tmpl_var name="key"}]" class="col-sm-3 control-label">{tmpl_var name='key'}</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="records[{tmpl_var name="key"}]" id="records[{tmpl_var name="key"}]" value="{tmpl_var name='val'}" maxlength="255">
+            </div>
+        </div>
+    </tmpl_loop>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+    <input type="hidden" name="lang" value="{tmpl_var name='lang'}">
+    <input type="hidden" name="lang_file" value="{tmpl_var name='lang_file'}">
+    <input type="hidden" name="module" value="{tmpl_var name='module'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/language_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/language_list.php?lng_select={tmpl_var name='lang'}');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

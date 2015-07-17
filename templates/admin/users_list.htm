@@ -1,0 +1,60 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+        <button class="btn btn-success pull-right" type="button" onclick="loadContent('admin/users_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+
+<p><tmpl_var name="warning_txt"></p>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_client_id" ><tmpl_var name="client_id_txt"></th>
+            <th class="tbl_col_active" ><tmpl_var name="active_txt"></th>
+            <th class="tbl_col_username" ><tmpl_var name="username_txt"></th>
+            <th class="tbl_col_groups" ><tmpl_var name="groups_txt"></th>
+            <th class="tbl_col_limit" >
+            </th>
+        </tr>
+        <tr>
+            <td><input class="form-control" type="text" name="search_client_id" value="{tmpl_var name='search_client_id'}" /></td>
+            <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><input class="form-control" type="text" name="search_username" value="{tmpl_var name='search_username'}" /></td>
+            <td><select class="form-control" name="search_groups">{tmpl_var name='search_groups'}</select></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','admin/users_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+        <tr onclick="loadContent('admin/users_edit.php?id={tmpl_var name='id'}')">
+            <td>{tmpl_var name="client_id"}</td>
+            <td>{tmpl_var name="active"}</td>
+            <td>
+                {tmpl_var name="typ"} - {tmpl_var name="username"}
+            </td>
+            <td>{tmpl_var name="groups"}</td>
+            <td>
+                <tmpl_if name="username" op="!=" value="admin">
+                    <a class="btn btn-default" href="javascript: loadContent('admin/login_as.php?id={tmpl_var name='id'}');">
+                        <i class="fa fa-share"></i>
+                    </a>
+                    <a class="btn btn-danger" href="javascript: del_record('admin/users_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </tmpl_if>
+            </td>
+        </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

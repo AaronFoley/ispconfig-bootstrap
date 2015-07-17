@@ -1,0 +1,17 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="config_dir" class="col-sm-3 control-label">{tmpl_var name='config_dir_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="config_dir" id="config_dir" value="{tmpl_var name='config_dir'}" maxlength="255">
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/server_config_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/server_config_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

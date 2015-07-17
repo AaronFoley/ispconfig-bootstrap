@@ -1,0 +1,80 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='dbname_prefix_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="dbname_prefix" id="dbname_prefix" value="{tmpl_var name='dbname_prefix'}" size="30" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='dbuser_prefix_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="dbuser_prefix" id="dbuser_prefix" value="{tmpl_var name='dbuser_prefix'}" size="30" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='ftpuser_prefix_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="ftpuser_prefix" id="ftpuser_prefix" value="{tmpl_var name='ftpuser_prefix'}" size="30" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='shelluser_prefix_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="shelluser_prefix" id="shelluser_prefix" value="{tmpl_var name='shelluser_prefix'}" size="30" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='webdavuser_prefix_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="webdavuser_prefix" id="webdavuser_prefix" value="{tmpl_var name='webdavuser_prefix'}" size="30" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='dblist_phpmyadmin_link_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='dblist_phpmyadmin_link'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='phpmyadmin_url_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="phpmyadmin_url" id="phpmyadmin_url" value="{tmpl_var name='phpmyadmin_url'}">
+            <span class="help-block">
+                {tmpl_var name='phpmyadmin_url_note_txt'} <a href="javascript:void(0);" class="addPlaceholder">[SERVERNAME]</a>, <a href="javascript:void(0);" class="addPlaceholder">[DATABASENAME]</a>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">{tmpl_var name='webftp_url_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="webftp_url" id="webftp_url" value="{tmpl_var name='webftp_url'}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='vhost_subdomains_txt'}</label>
+        <div class="col-sm-9">
+            <div class="checkbox">
+                {tmpl_var name='vhost_subdomains'}&nbsp; &nbsp; {tmpl_var name='vhost_subdomains_note_txt'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='client_username_web_check_disabled_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='client_username_web_check_disabled'}
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/system_config_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/server_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

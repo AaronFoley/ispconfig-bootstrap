@@ -1,0 +1,48 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+<p><tmpl_var name="list_desc_txt"></p>
+
+<tmpl_if name='error'>
+    <div class="alert alert-danger" role="alert">
+        <h3>ERROR</h3><ol><tmpl_var name="error"></ol>
+    </div>
+</tmpl_if>
+<tmpl_if name='msg'>
+    <div class="alert alert-info" role="alert">
+        <tmpl_var name="msg">
+    </div>
+</tmpl_if>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="language_import" class="col-sm-3 control-label">{tmpl_var name='language_import_txt'}</label>
+        <div class="col-sm-6">
+            <input type="file" class="form-control" name="language_import" id="language_import" value="{tmpl_var name='language_import'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='language_overwrite_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                <input id="overwrite" type="checkbox" value="1" name="overwrite"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='ignore_version_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                <input id="ignore_version" type="checkbox" value="1" name="ignore_version"/>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/language_import.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/language_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

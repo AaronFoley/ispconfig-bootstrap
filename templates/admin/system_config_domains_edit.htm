@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='use_domain_module_txt'}</label>
+        <div class="col-sm-9">
+            <div class="checkbox">
+                {tmpl_var name='use_domain_module'}
+            </div>
+            <span class="help-block">
+                {tmpl_var name='use_domain_module_hint'}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <textarea class="form-control" rows="3" name="new_domain_html" id="new_domain_html">{tmpl_var name='new_domain_html'}</textarea>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/system_config_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/server_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+<div class="form-group">
+    <label for="username" class="col-sm-3 control-label">{tmpl_var name='language_select_txt'}</label>
+    <div class="col-sm-9">
+        <select name="lng_select" id="lng_select" class="form-control" onChange="submitForm('pageForm','admin/language_list.php');">
+            {tmpl_var name='language_option'}
+        </select>
+    </div>
+</div>
+<br/><br/>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_module" scope="col"><tmpl_var name="module_txt"></th>
+            <th class="tbl_col_lang_file" scope="col"><tmpl_var name="lang_file_txt"></th>
+            <th class="tbl_col_limit" scope="col"><tmpl_var name="lang_file_date_txt"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_module"><a href="#" onclick="loadContent('admin/language_edit.php?lang_file={tmpl_var name="lang_file"}&module={tmpl_var name="module"}&lang={tmpl_var name="lang"}');">{tmpl_var name="module"}</a></td>
+                <td class="tbl_col_lang_file"><a href="#" onclick="loadContent('admin/language_edit.php?lang_file={tmpl_var name="lang_file"}&module={tmpl_var name="module"}&lang={tmpl_var name="lang"}');">{tmpl_var name="lang_file"}</a></td>
+                <td><a href="#" onclick="loadContent('admin/language_edit.php?lang_file={tmpl_var name="lang_file"}&module={tmpl_var name="module"}&lang={tmpl_var name="lang"}');">{tmpl_var name="lang_file_date"}</a></td>
+            </tr>
+        </tmpl_loop>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="3"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

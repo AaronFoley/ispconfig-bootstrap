@@ -1,0 +1,51 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+        <button class="btn btn-success pull-right" type="button" onclick="loadContent('admin/firewall_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_active" scope="col"><tmpl_var name="active_txt"></th>
+            <th class="tbl_col_server_id" scope="col"><tmpl_var name="server_id_txt"></th>
+            <th class="tbl_col_tcp_port" scope="col"><tmpl_var name="tcp_port_txt"></th>
+            <th class="tbl_col_udp_port" scope="col"><tmpl_var name="udp_port_txt"></th>
+            <th class="tbl_col_limit" scope="col">{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
+            <td><input class="form-control" type="text" name="search_tcp_port" value="{tmpl_var name='search_tcp_port'}" /></td>
+            <td><input class="form-control" type="text" name="search_udp_port" value="{tmpl_var name='search_udp_port'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','admin/firewall_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_active"><a href="#" onclick="loadContent('admin/firewall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</a></td>
+                <td class="tbl_col_server_id"><a href="#" onclick="loadContent('admin/firewall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="server_id"}</a></td>
+                <td class="tbl_col_tcp_port"><a href="#" onclick="loadContent('admin/firewall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="tcp_port"}</a></td>
+                <td class="tbl_col_udp_port"><a href="#" onclick="loadContent('admin/firewall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="udp_port"}</a></td>
+                <td class="tbl_col_buttons">
+                    <a class="btn btn-danger" href="javascript: del_record('admin/firewall_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+
+    <tfoot>
+        <tr>
+        <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

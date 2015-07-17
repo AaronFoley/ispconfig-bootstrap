@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="init_script" class="col-sm-3 control-label">{tmpl_var name='init_script_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="init_script" id="init_script" value="{tmpl_var name='init_script'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="crontab_dir" class="col-sm-3 control-label">{tmpl_var name='crontab_dir_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="crontab_dir" id="crontab_dir" value="{tmpl_var name='crontab_dir'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="wget" class="col-sm-3 control-label">{tmpl_var name='wget_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="wget" id="wget" value="{tmpl_var name='wget'}" maxlength="255">
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/server_config_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/server_config_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

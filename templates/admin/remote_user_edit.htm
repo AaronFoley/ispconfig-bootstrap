@@ -1,0 +1,50 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="remote_username" class="col-sm-2 control-label">{tmpl_var name='username_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="remote_username" id="remote_username" value="{tmpl_var name='remote_username'}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="remote_password" class="col-sm-2 control-label">{tmpl_var name='password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="remote_password" autocomplete="off" onkeyup="pass_check(this.value);checkPassMatch('remote_password','remote_password');">
+        </div>
+        <div class="col-sm-4">
+        <span class="help-block">
+            <a href="javascript:void(0);" onclick="generatePassword('remote_password','repeat_password');">{tmpl_var name='generate_password_txt'}</a>
+        </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="repeat_password" class="col-sm-2 control-label">{tmpl_var name='repeat_password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="repeat_password" autocomplete="off" onkeyup="checkPassMatch('passwort','repeat_password');">
+            <span class="help-block">
+                <p id="confirmpasswordError" style="display:none;" class="text-danger">{tmpl_var name='password_mismatch_txt'}</p>
+                <p id="confirmpasswordOK" style="display:none;" class="text-success">{tmpl_var name='password_match_txt'}</p>
+            </span>
+        </div>
+        <div class="col-sm-4">
+            <span class="help-block">
+                <div hidden id="passBar"></div>
+                <p class="formHint"><span id="passText">&nbsp;</span></p>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{tmpl_var name='function_txt'}</label>
+        <div class="col-sm-10">
+            <div class="checkbox">
+                {tmpl_var name='remote_functions'}
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/remote_user_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/remote_user_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

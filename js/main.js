@@ -17,11 +17,6 @@ jQuery(document).ready(function() {
         noResultsLimit: '<tmpl_var name="globalsearch_noresults_limit_txt">',
         searchFieldWatermark: '<tmpl_var name="globalsearch_searchfield_watermark_txt">'
     });
-    jQuery('.ttip').tipsy({
-        live: true,
-        gravity: 'ne',
-        html: true
-    });
     tabChangeDiscard = '<tmpl_var name="tabchange_discard_enabled>';
     tabChangeWarning = '<tmpl_var name="tabchange_warning_enabled>';
     tabChangeWarningTxt = '<tmpl_var name="global_tabchange_warning_txt">';

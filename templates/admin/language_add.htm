@@ -1,0 +1,33 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="lng_select" class="col-sm-3 control-label">{tmpl_var name='language_select_txt'}</label>
+        <div class="col-sm-6">
+            <select name="lng_select" id="lng_select" class="form-control">
+                {tmpl_var name='language_option'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tempvak" class="col-sm-3 control-label">{tmpl_var name='language_new_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="lng_new" id="lng_new" maxlength="255">
+            <span class="help-block">
+                {tmpl_var name='language_new_hint_txt'}
+            </span>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','admin/language_add.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('admin/language_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>
