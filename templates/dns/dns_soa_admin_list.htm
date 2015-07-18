@@ -1,0 +1,74 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+    <button class="btn btn-success pull-right" style="margin-left:10px" type="button" onclick="loadContent('dns/dns_wizard.php')">{tmpl_var name="add_new_record_wizard_txt"}</button>&nbsp;&nbsp;
+    <button class="btn btn-success pull-right" style="margin-left:10px" type="button" onclick="loadContent('dns/dns_soa_edit.php')">{tmpl_var name="add_new_record_txt"}</button>&nbsp;&nbsp;
+    <button class="btn btn-success pull-right" style="margin-left:10px" type="button" onclick="loadContent('dns/dns_import.php')">Import Zone File</button>
+    </h1>
+</div>
+
+<tmpl_if name='datalog_changes_count' op='>' value='0'>
+        <div>
+            <div class="systemmonitor-state state-info">
+                <div class="status"></div>
+                <div class="statusMsg">
+                    {tmpl_var name="datalog_changes_txt"}
+                    <ul>
+                    <tmpl_loop name="datalog_changes">
+                        <li><strong>{tmpl_var name="text"}:</strong> {tmpl_var name="count"}</li>
+                    </tmpl_loop>
+                    </ul>
+                    {tmpl_var name="datalog_changes_end_txt"}
+                </div>
+            </div><br />
+        </div>
+        </tmpl_if>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_active" scope="col"><tmpl_var name="active_txt"></th>
+            <th class="tbl_col_sys_groupid" scope="col"><tmpl_var name="sys_groupid_txt"></th>
+            <th class="tbl_col_server_id" scope="col"><tmpl_var name="server_id_txt"></th>
+            <th class="tbl_col_origin" scope="col"><tmpl_var name="origin_txt"></th>
+            <th class="tbl_col_ns" scope="col"><tmpl_var name="ns_txt"></th>
+            <th class="tbl_col_mbox" scope="col"><tmpl_var name="mbox_txt"></th>
+            <th class="tbl_col_limit" scope="col">{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><select class="form-control" name="search_sys_groupid">{tmpl_var name='search_sys_groupid'}</select></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
+            <td><input class="form-control" type="text" name="search_origin" value="{tmpl_var name='search_origin'}" /></td>
+            <td><input class="form-control" type="text" name="search_ns" value="{tmpl_var name='search_ns'}" /></td>
+            <td><input class="form-control" type="text" name="search_mbox" value="{tmpl_var name='search_mbox'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','dns/dns_soa_list.php');"><span>{tmpl_var name="filter_txt"}</span></button></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_active"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</td>
+                <td class="tbl_col_sys_groupid"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="sys_groupid"}</a></td>
+                <td class="tbl_col_server_id"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="server_id"}</a></td>
+                <td class="tbl_col_origin"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="origin"}</a></td>
+                <td class="tbl_col_ns"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="ns"}</a></td>
+                <td class="tbl_col_mbox"><a href="#" onclick="loadContent('dns/dns_soa_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="mbox"}</a></td>
+                <td class="tbl_col_buttons">
+                    <a class="btn btn-danger" href="javascript: del_record('dns/dns_soa_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="7">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="7"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,69 @@
+<div class='page-header'>
+    <h1><tmpl_var name="zone_file_import_txt"></h1>
+</div>
+
+<tmpl_if name='error'>
+    <div class="alert alert-danger" role="alert">
+        <ol><tmpl_var name="error"></ol>
+    </div>
+</tmpl_if>
+<tmpl_if name='okmsg'>
+    <div class="alert alert-warning" role="alert">
+        <tmpl_var name="okmsg">
+    </div>
+</tmpl_if>
+
+<div class="form-horizontal">
+
+    <tmpl_if name="is_admin">
+        <div class="form-group">
+            <label for="server_id" class="col-sm-3 control-label">{tmpl_var name='server_id_txt'}</label>
+            <div class="col-sm-6">
+                <select name="server_id" id="server_id" class="form-control">
+                    {tmpl_var name='server_id'}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="client" class="col-sm-3 control-label">{tmpl_var name='client_txt'}</label>
+            <div class="col-sm-6">
+                <select name="client_group_id" id="client_group_id" class="form-control">
+                    {tmpl_var name='client_group_id'}
+                </select>
+            </div>
+        </div>
+    </tmpl_if>
+    <div class="form-group">
+        <label for="domain" class="col-sm-3 control-label">{tmpl_var name='domain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="domain" id="domain" value="{tmpl_var name='domain'}" maxlength="255">
+            <span class="help-block">
+            {tmpl_var name='domain_field_desc_txt'}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="zonefile_to_import" class="col-sm-3 control-label">{tmpl_var name='zonefile_to_import_txt'}</label>
+        <div class="col-sm-6">
+            <input type="file" class="form-control" name="zonefile_to_import" id="zonefile_to_import" value="{tmpl_var name='zonefile_to_import'}" maxlength="255">
+        </div>
+    </div>
+
+
+   <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','client/dns_import.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('client/dns_soa_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>
+
+<!-- <script language="JavaScript" type="text/javascript">
+    function keydown(keynum){
+        if(keynum == 13){
+            jQuery('.positive').trigger('click');
+        }
+    }
+</script> -->

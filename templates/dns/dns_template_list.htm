@@ -1,0 +1,43 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+    <button class="btn btn-success pull-right" type="button" onclick="loadContent('dns/dns_template_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_visible" scope="col"><tmpl_var name="visible_txt"></th>
+            <th class="tbl_col_name" scope="col"><tmpl_var name="name_txt"></th>
+            <th class="tbl_col_limit" scope="col">{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><select class="form-control" name="search_visible">{tmpl_var name='search_visible'}</select></td>
+            <td><input class="form-control" type="text" name="search_name" value="{tmpl_var name='search_name'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','dns/dns_template_list.php');"><span>{tmpl_var name="filter_txt"}</span></button></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_visible"><a href="#" onclick="loadContent('dns/dns_template_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="visible"}</a></td>
+                <td class="tbl_col_name"><a href="#" onclick="loadContent('dns/dns_template_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="name"}</a></td>
+                <td class="tbl_col_buttons">
+                     <a class="btn btn-danger" href="javascript: del_record('dns/dns_template_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="3">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="3"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>
