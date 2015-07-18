@@ -1,0 +1,52 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+        <button class="btn btn-success pull-right" type="button" onclick="loadContent('client/client_circle_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+
+<p><tmpl_var name="warning_txt"></p>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_circle_id" scope="col"><tmpl_var name="circle_id_txt"></th>
+            <th class="tbl_col_active" scope="col"><tmpl_var name="active_txt"></th>
+            <th class="tbl_col_circle_name" scope="col"><tmpl_var name="circle_name_txt"></th>
+            <th class="tbl_col_description" scope="col"><tmpl_var name="description_txt"></th>
+            <th class="tbl_col_limit" scope="col">{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><input class="form-control" type="text" name="search_circle_id" value="{tmpl_var name='search_circle_id'}" /></td>
+            <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><input class="form-control" type="text" name="search_circle_name" value="{tmpl_var name='search_circle_name'}" /></td>
+            <td><input class="form-control" type="text" name="search_description" value="{tmpl_var name='search_description'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','client/client_circle_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_circle_pid"><a href="#" onclick="loadContent('client/client_circle_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="circle_id"}</a></td>
+                <td class="tbl_col_active"><a href="#" onclick="loadContent('client/client_circle_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</a></td>
+                <td class="tbl_col_circle_name"><a href="#" onclick="loadContent('client/client_circle_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="circle_name"}</a></td>
+                <td class="tbl_col_description"><a href="#" onclick="loadContent('client/client_circle_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="description"}</a></td>
+                <td class="tbl_col_buttons">
+                    <a class="btn btn-danger" href="javascript: del_record('client/client_circle_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

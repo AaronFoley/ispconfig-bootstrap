@@ -1,0 +1,45 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+    <button class="btn btn-success pull-right" type="button" onclick="loadContent('client/message_template_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+<p><tmpl_var name="warning_txt"></p>
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_template_type" scope="col"><tmpl_var name="template_type_txt"></th>
+            <th class="tbl_col_template_name" scope="col"><tmpl_var name="template_name_txt"></th>
+            <th class="tbl_col_buttons" scope="col">&nbsp;</th>
+        </tr>
+        <tr>
+            <td><select class="form-control" name="search_template_type" onChange="submitForm('pageForm','client/message_template_list.php');">{tmpl_var name='search_template_type'}</select></td>
+            <td><input class="form-control" type="text" name="search_template_name" value="{tmpl_var name='search_template_name'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','client/message_template_list.php');"><span>{tmpl_var name="filter_txt"}</span></button></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_template_type"><a href="#" onclick="loadContent('client/message_template_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="template_type"}</a></td>
+                <td class="tbl_col_template_name"><a href="#" onclick="loadContent('client/message_template_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="template_name"}</a></td>
+                <td class="tbl_col_buttons">
+                    <div class="buttons icons16">
+                        <a class="btn btn-danger" href="javascript: del_record('client/message_template_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    </div>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="3">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="3"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

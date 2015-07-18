@@ -1,0 +1,464 @@
+<div class="form-horizontal">
+
+    <tmpl_if name="is_admin">
+        <div class="form-group">
+            <label for="template_master" class="col-sm-3 control-label">{tmpl_var name='template_master_txt'}</label>
+            <div class="col-sm-6">
+                <select name="template_master" id="template_master" class="form-control">
+                    {tmpl_var name='template_master'}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tpl_add_select" class="col-sm-3 control-label">{tmpl_var name='template_additional_txt'}</label>
+            <div class="col-sm-6">
+                <select name="tpl_add_select" id="tpl_add_select" class="form-control">
+                    {tmpl_var name='tpl_add_select'}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{tmpl_var name='active_template_additional_txt'}</label>
+            <div class="col-sm-6">
+                <p class="form-control-static"><ol>{tmpl_var name='template_additional_list'}</ol></p>
+            </div>
+        </div>
+
+        <input type="hidden" id="template_additional" name="template_additional" value="{tmpl_var name='template_additional'}">
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9 topbuttons">
+                <button class="btn btn-success" type="button"  value="{tmpl_var name='add_additional_template_txt'}" onclick="addAdditionalTemplate();">{tmpl_var name="add_additional_template_txt"}</button>
+            </div>
+        </div>
+    </tmpl_if>
+
+    <tmpl_if name="is_admin">
+    <div class="form-group">
+        <label for="parent_client_id" class="col-sm-3 control-label">{tmpl_var name='parent_client_id_txt'}</label>
+        <div class="col-sm-6">
+            <select name="parent_client_id" id="parent_client_id" class="form-control">
+                {tmpl_var name='parent_client_id'}
+            </select>
+        </div>
+    </div>
+    </tmpl_if>
+
+    <hr/>
+
+    <h2>{tmpl_var name='web_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="default_webserver" class="col-sm-3 control-label">{tmpl_var name='default_webserver_txt'}</label>
+        <div class="col-sm-6">
+            <select name="default_webserver" id="default_webserver" class="form-control">
+                {tmpl_var name='default_webserver'}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="limit_web_domain" class="col-sm-3 control-label">{tmpl_var name='limit_web_domain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_web_domain" id="limit_web_domain" value="{tmpl_var name='limit_web_domain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_web_quota" class="col-sm-3 control-label">{tmpl_var name='limit_web_quota_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_web_quota" id="limit_web_quota" value="{tmpl_var name='limit_web_quota'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_traffic_quota" class="col-sm-3 control-label">{tmpl_var name='limit_traffic_quota_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_traffic_quota" id="limit_traffic_quota" value="{tmpl_var name='limit_traffic_quota'}" maxlength="255">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='web_php_options_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='web_php_options'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_cgi_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_cgi'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_ssi_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_ssi'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_perl_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_perl'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_ruby_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_ruby'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_python_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_python'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='force_suexec_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='force_suexec'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_hterror_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_hterror'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_wildcard_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_wildcard'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='limit_ssl_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='limit_ssl'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_web_aliasdomain" class="col-sm-3 control-label">{tmpl_var name='limit_web_aliasdomain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_web_aliasdomain" id="limit_web_aliasdomain" value="{tmpl_var name='limit_web_aliasdomain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_web_subdomain" class="col-sm-3 control-label">{tmpl_var name='limit_web_subdomain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_web_subdomain" id="limit_web_subdomain" value="{tmpl_var name='limit_web_subdomain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_ftp_user" class="col-sm-3 control-label">{tmpl_var name='limit_ftp_user_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_ftp_user" id="limit_ftp_user" value="{tmpl_var name='limit_ftp_user'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_shell_user" class="col-sm-3 control-label">{tmpl_var name='limit_shell_user_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_shell_user" id="limit_shell_user" value="{tmpl_var name='limit_shell_user'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='ssh_chroot_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='ssh_chroot'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_webdav_user" class="col-sm-3 control-label">{tmpl_var name='limit_webdav_user_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_webdav_user" id="limit_webdav_user" value="{tmpl_var name='limit_webdav_user'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='email_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="default_mailserver" class="col-sm-3 control-label">{tmpl_var name='default_mailserver_txt'}</label>
+        <div class="col-sm-6">
+            <select name="default_mailserver" id="default_mailserver" class="form-control">
+                {tmpl_var name='default_mailserver'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_maildomain" class="col-sm-3 control-label">{tmpl_var name='limit_maildomain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_maildomain" id="limit_maildomain" value="{tmpl_var name='limit_maildomain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailbox" class="col-sm-3 control-label">{tmpl_var name='limit_mailbox_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailbox" id="limit_mailbox" value="{tmpl_var name='limit_mailbox'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailalias" class="col-sm-3 control-label">{tmpl_var name='limit_mailalias_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailalias" id="limit_mailalias" value="{tmpl_var name='limit_mailalias'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailaliasdomain" class="col-sm-3 control-label">{tmpl_var name='limit_mailaliasdomain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailaliasdomain" id="limit_mailaliasdomain" value="{tmpl_var name='limit_mailaliasdomain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailmailinglist" class="col-sm-3 control-label">{tmpl_var name='limit_mailmailinglist_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailmailinglist" id="limit_mailmailinglist" value="{tmpl_var name='limit_mailmailinglist'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailforward" class="col-sm-3 control-label">{tmpl_var name='limit_mailforward_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailforward" id="limit_mailforward" value="{tmpl_var name='limit_mailforward'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailcatchall" class="col-sm-3 control-label">{tmpl_var name='limit_mailcatchall_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailcatchall" id="limit_mailcatchall" value="{tmpl_var name='limit_mailcatchall'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailrouting" class="col-sm-3 control-label">{tmpl_var name='limit_mailrouting_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailrouting" id="limit_mailrouting" value="{tmpl_var name='limit_mailrouting'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailfilter" class="col-sm-3 control-label">{tmpl_var name='limit_mailfilter_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailfilter" id="limit_mailfilter" value="{tmpl_var name='limit_mailfilter'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_fetchmail" class="col-sm-3 control-label">{tmpl_var name='limit_fetchmail_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_fetchmail" id="limit_fetchmail" value="{tmpl_var name='limit_fetchmail'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_mailquota" class="col-sm-3 control-label">{tmpl_var name='limit_mailquota_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_mailquota" id="limit_mailquota" value="{tmpl_var name='limit_mailquota'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_spamfilter_wblist" class="col-sm-3 control-label">{tmpl_var name='limit_spamfilter_wblist_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_spamfilter_wblist" id="limit_spamfilter_wblist" value="{tmpl_var name='limit_spamfilter_wblist'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_spamfilter_user" class="col-sm-3 control-label">{tmpl_var name='limit_spamfilter_user_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_spamfilter_user" id="limit_spamfilter_user" value="{tmpl_var name='limit_spamfilter_user'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_spamfilter_policy" class="col-sm-3 control-label">{tmpl_var name='limit_spamfilter_policy_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_spamfilter_policy" id="limit_spamfilter_policy" value="{tmpl_var name='limit_spamfilter_policy'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='database_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="default_dbserver" class="col-sm-3 control-label">{tmpl_var name='default_dbserver_txt'}</label>
+        <div class="col-sm-6">
+            <select name="default_dbserver" id="default_dbserver" class="form-control">
+                {tmpl_var name='default_dbserver'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_database" class="col-sm-3 control-label">{tmpl_var name='limit_database_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_database" id="limit_database" value="{tmpl_var name='limit_database'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='cron_job_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="limit_cron" class="col-sm-3 control-label">{tmpl_var name='limit_cron_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_cron" id="limit_cron" value="{tmpl_var name='limit_cron'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_cron_type" class="col-sm-3 control-label">{tmpl_var name='limit_cron_type_txt'}</label>
+        <div class="col-sm-6">
+            <select name="limit_cron_type" id="limit_cron_type" class="form-control">
+                {tmpl_var name='limit_cron_type'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_cron_frequency" class="col-sm-3 control-label">{tmpl_var name='limit_cron_frequency_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_cron_frequency" id="limit_cron_frequency" value="{tmpl_var name='limit_cron_frequency'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='dns_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="default_dnsserver" class="col-sm-3 control-label">{tmpl_var name='default_dnsserver_txt'}</label>
+        <div class="col-sm-6">
+            <select name="default_dnsserver" id="default_dnsserver" class="form-control">
+                {tmpl_var name='default_dnsserver'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_dns_zone" class="col-sm-3 control-label">{tmpl_var name='limit_dns_zone_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_dns_zone" id="limit_dns_zone" value="{tmpl_var name='limit_dns_zone'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="default_slave_dnsserver" class="col-sm-3 control-label">{tmpl_var name='default_slave_dnsserver_txt'}</label>
+        <div class="col-sm-6">
+            <select name="default_slave_dnsserver" id="default_slave_dnsserver" class="form-control">
+                {tmpl_var name='default_slave_dnsserver'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_dns_slave_zone" class="col-sm-3 control-label">{tmpl_var name='limit_dns_slave_zone_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_dns_slave_zone" id="limit_dns_slave_zone" value="{tmpl_var name='limit_dns_slave_zone'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_dns_record" class="col-sm-3 control-label">{tmpl_var name='limit_dns_record_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_dns_record" id="limit_dns_record" value="{tmpl_var name='limit_dns_record'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='virtualization_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="limit_openvz_vm" class="col-sm-3 control-label">{tmpl_var name='limit_openvz_vm_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_openvz_vm" id="limit_openvz_vm" value="{tmpl_var name='limit_openvz_vm'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_openvz_vm_template_id" class="col-sm-3 control-label">{tmpl_var name='limit_openvz_vm_template_id_txt'}</label>
+        <div class="col-sm-6">
+            <select name="limit_openvz_vm_template_id_" id="limit_openvz_vm_template_id_" class="form-control">
+                {tmpl_var name='limit_openvz_vm_template_id_'}
+            </select>
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='aps_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="limit_aps" class="col-sm-3 control-label">{tmpl_var name='limit_aps_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_aps" id="limit_aps" value="{tmpl_var name='limit_aps'}" maxlength="255">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>{tmpl_var name='client_limits_txt'}</h2>
+
+    <div class="form-group">
+        <label for="limit_client" class="col-sm-3 control-label">{tmpl_var name='limit_client_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_client" id="limit_client" value="{tmpl_var name='limit_client'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="limit_domainmodule" class="col-sm-3 control-label">{tmpl_var name='limit_domainmodule_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limit_domainmodule" id="limit_domainmodule" value="{tmpl_var name='limit_domainmodule'}" maxlength="255">
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','client/reseller_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('client/reseller_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>
+
+<tmpl_if name="is_admin">
+<script type="text/javascript">
+<!--
+function custom_template_selected() {
+    return ($('#template_master').val() == '0' ? true : false);
+}
+
+jQuery('#template_additional_list').find('li > a').click(function(e) {
+    e.preventDefault();
+    delAdditionalTemplate($(this).parent().attr('rel'));
+});
+
+jQuery('div.panel_client')
+        .find('div.pnl_formsarea')
+        .find('fieldset')
+        .find('input,select,button')
+        .not('#template_master,#template_additional,#default_mailserver,#default_webserver,#default_dbserver,#default_dnsserver,#default_slave_dnsserver,#customer_no_template,#customer_no_start,#customer_no_counter')
+        .click(function(e) {
+            if(custom_template_selected()) return true;
+            e.preventDefault();
+            alert('{tmpl_var name="err_msg_master_tpl_set"}');
+        })
+        .focus(function() {
+            if(custom_template_selected()) return true;
+            $(this).blur();
+        });
+
+//-->
+</script>
+</tmpl_if>
