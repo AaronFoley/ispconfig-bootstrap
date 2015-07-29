@@ -1,0 +1,124 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">{tmpl_var name='name_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" id="name" value="{tmpl_var name='name'}" maxlength="255">
+            <span class="help-block">
+                {tmpl_var name='name_optional_txt'}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">{tmpl_var name='email_txt'}</label>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input type="text" class="form-control" name="email_local_part" id="email_local_part" value="{tmpl_var name='email_local_part'}" maxlength="255">
+                <div class="input-group-addon">@</div>
+                <select name="email_domain" id="email_domain" class="form-control">
+                    {tmpl_var name='email_domain'}
+                </select>
+            </div>
+        </div>
+    </div>
+    <tmpl_if name="enable_custom_login">
+        <div class="form-group">
+            <label for="login" class="col-sm-3 control-label">{tmpl_var name='login_txt'}</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="login" id="login" value="{tmpl_var name='login'}" maxlength="255">
+            </div>
+        </div>
+    </tmpl_if>
+
+    <div class="form-group">
+        <label for="passwort" class="col-sm-3 control-label">{tmpl_var name='password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="password" name="password" autocomplete="off" onkeyup="pass_check(this.value);checkPassMatch('password','repeat_password');">
+        </div>
+        <div class="col-sm-3">
+        <span class="help-block">
+            <a href="javascript:void(0);" onclick="generatePassword('password','repeat_password');">{tmpl_var name='generate_password_txt'}</a>
+        </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="repeat_password" class="col-sm-3 control-label">{tmpl_var name='repeat_password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="repeat_password" name="repeat_password" autocomplete="off" onkeyup="checkPassMatch('password','repeat_password');">
+            <span class="help-block">
+                <p id="confirmpasswordError" style="display:none;" class="text-danger">{tmpl_var name='password_mismatch_txt'}</p>
+                <p id="confirmpasswordOK" style="display:none;" class="text-success">{tmpl_var name='password_match_txt'}</p>
+            </span>
+        </div>
+        <div class="col-sm-3">
+            <span class="help-block">
+                <div hidden id="passBar"></div>
+                <p class="formHint"><span id="passText">&nbsp;</span></p>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="quota" class="col-sm-3 control-label">{tmpl_var name='quota_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="quota" id="quota" value="{tmpl_var name='quota'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cc" class="col-sm-3 control-label">{tmpl_var name='cc_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="cc" id="cc" value="{tmpl_var name='cc'}" maxlength="255">
+            <span class="help-block">
+                {tmpl_var name='cc_note_txt'}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="policy" class="col-sm-3 control-label">{tmpl_var name='policy_txt'}</label>
+        <div class="col-sm-6">
+            <select name="policy" id="policy" class="form-control">
+                {tmpl_var name='policy'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='postfix_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='postfix'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='disablesmtp_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='disablesmtp'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='disableimap_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='disableimap'}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='disablepop3_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='disablepop3'}
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','mail/mail_user_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('mail/mail_user_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

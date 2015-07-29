@@ -162,6 +162,12 @@
     background-color: #fff;
 }
 
+#page.login-page
+{
+    margin: -20px 0 0 0;
+    border-left: none;
+}
+
 footer
 {
     width: 100%;
@@ -187,4 +193,11 @@ footer
 .checkbox > input[type=checkbox]
 {
     margin-left: 0;
+}
+
+.panel-login
+{
+    width: 580px;
+    margin: auto;
+    margin-top: 100px;
 }

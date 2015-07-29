@@ -1,0 +1,22 @@
+<tmpl_loop name="records">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {tmpl_var name='hf_question'}
+            <tmpl_if name='is_admin'>
+                <div class="pull-right">
+                    <a class="btn btn-danger" href="javascript: del_record('help/faq_sections_delete.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <a class="btn btn-success" href="javascript: loadContent('help/faq_sections_edit.php?id={tmpl_var name='id'}');">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </div>
+            </tmpl_if>
+        </div>
+        <div class="panel-body">
+            {tmpl_var name='hf_answer'}
+        </div>
+    </div>
+</tmpl_loop>
+
+<!--<tmpl_var name="paging">-->

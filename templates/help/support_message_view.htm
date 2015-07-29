@@ -1,0 +1,23 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="recipient_id" class="col-sm-3 control-label">{tmpl_var name='recipient_id_txt'}</label>
+        <div class="col-sm-6">
+            <p class="form-control-static">{tmpl_var name='subject'}</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="subject" class="col-sm-3 control-label">{tmpl_var name='subject_txt'}</label>
+        <p class="form-control-static">{tmpl_var name='message'}</p>
+    </div>
+    <div class="form-group">
+        <label for="message" class="col-sm-3 control-label">{tmpl_var name='message_txt'}</label>
+        <p class="form-control-static">{tmpl_var name='date'}</p>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','help/support_message_edit.php?reply={tmpl_var name='id'}');"><span>{tmpl_var name='reply_txt'}</span></button>
+        </div>
+    </div>
+</div>

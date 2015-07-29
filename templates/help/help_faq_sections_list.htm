@@ -1,0 +1,39 @@
+<div class='page-header'>
+    <h1><tmpl_var name="faq_faq_sections_txt">
+    <button class="btn btn-success pull-right" style="margin-left:10px" type="button" onclick="loadContent('help/faq_sections_edit.php')">{tmpl_var name="faq_new_section_txt"}</button>
+    </h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th class="tbl_col_section_name" scope="col">{tmpl_var name="faq_section_name_txt"}</th>
+            <th class="tbl_col_buttons" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td class="tbl_col_section_name"><b>{tmpl_var name='hfs_name'}</b></td>
+                <td class="tbl_col_buttons">
+                    <a class="btn btn-danger" href="javascript: del_record('help/faq_sections_delete.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <a class="btn btn-success" href="javascript: loadContent('help/faq_sections_edit.php?id={tmpl_var name='id'}');">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="3">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="7"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

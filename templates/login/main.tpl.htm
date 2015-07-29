@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title><tmpl_var name="app_title"> <tmpl_var name="app_version"></title>
+
+        <meta name='viewport' content='width=device-width, user-scalable=yes'>
+        <meta name='description' lang='en' content='' />
+        <meta name='keywords' lang='en' content='' />
+        <meta name='robots' content='index, follow' />
+        <meta charset="<tmpl_var name="html_content_encoding">" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+        <link rel="shortcut icon" href="/themes/bootstrap/images/favicon.ico" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="themes/bootstrap/css/styles.css?nocache" rel="stylesheet" media="screen" type="text/css" />
+        <!--[if IE 9]><link href="themes/default/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if lte IE 8]><script type="text/javascript" src="themes/default/js/html5shiv.js"></script><![endif]-->
+        <!--[if lte IE 7]><link href="themes/default/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+        <script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
+        <script type="text/javascript" src="js/scrigo.js.php"></script>
+        <script type="text/javascript" src="themes/bootstrap/js/main.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">ISPConfig 3</a>
+                </div>
+            </nav>
+            <div id="page" class="login-page">
+                <section id="main" name="content">
+                    <section id="content">
+                        <form method="post" action="" id="pageForm" name="pageForm" enctype="multipart/form-data" class="uniForm">
+                            <input type="text" style="display:none" /><input type="password" style="display:none"/>
+                            <div id="pageContent"><!-- AJAX CONTENT --></div>
+                        </form>
+                    </section>
+                </section>
+            </div>
+            <footer>Powered by <a href="<tmpl_var name="app_link">" target="_blank"><tmpl_var name="app_title"></a></footer>
+        </div>
+        <!-- Load Scripts at the bottom better loading! -->
+        <script type="text/javascript" src="js/uni-form/uni-form.jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.ispconfigsearch.js"></script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+</body>
+</html>

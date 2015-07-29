@@ -1,0 +1,50 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+        <button class="btn btn-success pull-right" type="button" onclick="loadContent('mail/mail_domain_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+    </h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th><tmpl_var name="active_txt"></th>
+            <th><tmpl_var name="sys_groupid_txt"></th>
+            <th><tmpl_var name="server_id_txt"></th>
+            <th><tmpl_var name="domain_txt"></th>
+            <th>{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><select class="form-control" name="search_sys_groupid">{tmpl_var name='search_sys_groupid'}</select></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
+            <td><input class="form-control" type="text" name="search_domain" value="{tmpl_var name='search_domain'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','mail/mail_domain_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td><a href="#" onclick="loadContent('mail/mail_domain_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_domain_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="sys_groupid"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_domain_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="server_id"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_domain_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="domain"}</a></td>
+                <td>
+                    <a class="btn btn-danger" href="javascript: del_record('mail/mail_domain_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>
