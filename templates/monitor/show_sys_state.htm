@@ -1,0 +1,18 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="refreshinterval" class="col-sm-3 control-label">{tmpl_var name='monTransRefreshsq'}</label>
+        <div class="col-sm-6">
+            <select name="refreshinterval" id="refreshinterval" class="form-control" onChange="loadContentRefresh('monitor/show_sys_state.php?state={tmpl_var name="state_type"}')">
+                {tmpl_var name='refresh'}
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="well">
+    <div class="stateview"><tmpl_var name="state_data"></div>
+</div>

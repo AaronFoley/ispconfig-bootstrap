@@ -1,0 +1,55 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th><tmpl_var name="tstamp_txt"></th>
+            <th><tmpl_var name="server_id_txt"></th>
+            <th><tmpl_var name="loglevel_txt"></th>
+            <th><tmpl_var name="message_txt"></th>
+            <th>{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
+            <td><select class="form-control" name="search_loglevel">{tmpl_var name='search_loglevel'}</select></td>
+            <td><input class="form-control" type="text" name="search_message" value="{tmpl_var name='search_message'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','monitor/log_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td>{tmpl_var name="tstamp"}</td>
+                <td>{tmpl_var name="server_id"}</td>
+                <td>{tmpl_var name="loglevel"}</td>
+                <td>{tmpl_var name="message"}</td>
+                <td>
+                    <tmpl_if name="loglevel" op="==" value="Error">
+                        <a class="btn btn-danger" href="javascript: del_record('monitor/log_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </tmpl_if>
+                    <tmpl_if name="loglevel" op="==" value="Warning">
+                        <a class="btn btn-danger" href="javascript: del_record('monitor/log_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </tmpl_if>
+                </td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

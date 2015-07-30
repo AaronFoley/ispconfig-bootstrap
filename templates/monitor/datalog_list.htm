@@ -1,0 +1,44 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt"></h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th><tmpl_var name="tstamp_txt"></th>
+            <th><tmpl_var name="server_id_txt"></th>
+            <th><tmpl_var name="action_txt"></th>
+            <th><tmpl_var name="dbtable_txt"></th>
+            <th>{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
+            <td><select class="form-control" name="search_action">{tmpl_var name='search_action'}</select></td>
+            <td><input class="form-control" type="text" name="search_dbtable" value="{tmpl_var name='search_dbtable'}" /></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','monitor/datalog_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td>{tmpl_var name="tstamp"}</td>
+                <td>{tmpl_var name="server_id"}</td>
+                <td>{tmpl_var name="action"}</td>
+                <td>{tmpl_var name="dbtable"}</td>
+                <td></td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>
