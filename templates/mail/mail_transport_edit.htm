@@ -1,0 +1,64 @@
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label for="server_id" class="col-sm-3 control-label">{tmpl_var name='server_id_txt'}</label>
+        <div class="col-sm-6">
+            <select name="server_id" id="server_id" class="form-control">
+                {tmpl_var name='server_id'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="domain" class="col-sm-3 control-label">{tmpl_var name='domain_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="domain" id="domain" value="{tmpl_var name='domain'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="type" class="col-sm-3 control-label">{tmpl_var name='type_txt'}</label>
+        <div class="col-sm-6">
+            <select name="type" id="type" class="form-control">
+                {tmpl_var name='type'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='mx_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                <input type="checkbox" value="y" id="mx" name="mx" {tmpl_var name='mx'} />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="destination" class="col-sm-3 control-label">{tmpl_var name='destination_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="destination" id="destination" value="{tmpl_var name='destination'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="sort_order" class="col-sm-3 control-label">{tmpl_var name='sort_order_txt'}</label>
+        <div class="col-sm-6">
+            <select name="sort_order" id="sort_order" class="form-control">
+                {tmpl_var name='sort_order'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='active_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='active'}
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','mail/mail_transport_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('mail/mail_transport_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

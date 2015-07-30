@@ -1,6 +1,6 @@
 <div class='page-header'>
     <h1><tmpl_var name="list_head_txt">
-        <button class="btn btn-success pull-right" type="button" onclick="loadContent('mail/mail_domain_catchall_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
+        <button class="btn btn-success pull-right" type="button" onclick="loadContent('mail/mail_blacklist_edit.php')">{tmpl_var name="add_new_record_txt"}</button>
     </h1>
 </div>
 
@@ -25,26 +25,29 @@
     <thead class="form-group">
         <tr>
             <th><tmpl_var name="active_txt"></th>
+            <th><tmpl_var name="server_id_txt"></th>
             <th><tmpl_var name="source_txt"></th>
-            <th><tmpl_var name="destination_txt"></th>
+            <th><tmpl_var name="type_txt"></th>
             <th>{tmpl_var name='search_limit'}</th>
         </tr>
         <tr>
             <td><select class="form-control" name="search_active">{tmpl_var name='search_active'}</select></td>
+            <td><select class="form-control" name="search_server_id">{tmpl_var name='search_server_id'}</select></td>
             <td><input class="form-control" type="text" name="search_source" value="{tmpl_var name='search_source'}" /></td>
-            <td><input class="form-control" type="text" name="search_destination" value="{tmpl_var name='search_destination'}" /></td>
-            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','mail/mail_domain_catchall_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            <td><select class="form-control" name="search_type">{tmpl_var name='search_type'}</select></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','mail/mail_blacklist_list.php');"><span>{tmpl_var name="filter_txt"}</span></button>
             </td>
         </tr>
     </thead>
     <tbody>
         <tmpl_loop name="records">
             <tr>
-                <td><a href="#" onclick="loadContent('mail/mail_domain_catchall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</a></td>
-                <td><a href="#" onclick="loadContent('mail/mail_domain_catchall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="source"}</a></td>
-                <td><a href="#" onclick="loadContent('mail/mail_domain_catchall_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="destination"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_blacklist_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="active"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_blacklist_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="server_id"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_blacklist_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="source"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_blacklist_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="type"}</a></td>
                 <td>
-                    <a class="btn btn-danger" href="javascript: del_record('mail/mail_domain_catchall_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
+                    <a class="btn btn-danger" href="javascript: del_record('mail/mail_blacklist_del.php?id={tmpl_var name='id'}&phpsessid={tmpl_var name='phpsessid'}','{tmpl_var name='delete_confirmation'}');">
                         <i class="fa fa-trash"></i>
                     </a>
                 </td>
@@ -52,7 +55,7 @@
         </tmpl_loop>
         <tmpl_unless name="records">
             <tr>
-                <td colspan="4">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+                <td colspan="5">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
             </tr>
         </tmpl_unless>
     </tbody>

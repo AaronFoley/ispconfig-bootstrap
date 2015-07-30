@@ -1,0 +1,48 @@
+<div class='page-header'>
+    <h1><tmpl_var name="list_head_txt">
+    </h1>
+</div>
+
+<table class="table table-hover">
+    <thead class="form-group">
+        <tr>
+            <th><tmpl_var name="email_txt"></th>
+            <th><tmpl_var name="this_month_txt"></th>
+            <th><tmpl_var name="last_month_txt"></th>
+            <th><tmpl_var name="this_year_txt"></th>
+            <th><tmpl_var name="last_year_txt"></th>
+            <th>{tmpl_var name='search_limit'}</th>
+        </tr>
+        <tr>
+            <td><input class="form-control" type="text" name="search_email" value="{tmpl_var name='search_email'}" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button type="button" class="btn btn-default" name="Filter" id="Filter" value="{tmpl_var name="filter_txt"}" onclick="submitForm('pageForm','mail/mail_user_stats.php');"><span>{tmpl_var name="filter_txt"}</span></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tmpl_loop name="records">
+            <tr>
+                <td><a href="#" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="email"}</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="this_month"} MB</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="last_month"} MB</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="this_year"} MB</a></td>
+                <td><a href="#" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='id'}');">{tmpl_var name="last_year"} MB</a></td>
+                <td></td>
+            </tr>
+        </tmpl_loop>
+        <tmpl_unless name="records">
+            <tr>
+                <td colspan="6">{tmpl_var name='globalsearch_noresults_text_txt'}</td>
+            </tr>
+        </tmpl_unless>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="tbl_footer tbl_paging" colspan="5"><tmpl_var name="paging"></td>
+        </tr>
+    </tfoot>
+</table>

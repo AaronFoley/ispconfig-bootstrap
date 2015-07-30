@@ -1,0 +1,94 @@
+<div class="form-horizontal">
+    <tmpl_if name="is_admin">
+        <div class="form-group">
+            <label for="client_group_id" class="col-sm-3 control-label">{tmpl_var name='client_txt'}</label>
+            <div class="col-sm-6">
+                <select name="client_group_id" id="client_group_id" class="form-control">
+                    {tmpl_var name='client_group_id'}
+                </select>
+            </div>
+        </div>
+    </tmpl_if>
+    <tmpl_if name="is_reseller">
+        <div class="form-group">
+            <label for="client_group_id" class="col-sm-3 control-label">{tmpl_var name='client_txt'}</label>
+            <div class="col-sm-6">
+                <select name="client_group_id" id="client_group_id" class="form-control">
+                    {tmpl_var name='client_group_id'}
+                </select>
+            </div>
+        </div>
+    </tmpl_if>
+
+    <div class="form-group">
+        <label for="domain" class="col-sm-3 control-label">{tmpl_var name='domain_txt'}</label>
+        <div class="col-sm-6">
+            <tmpl_if name="edit_disabled">
+                <select name="domain_disabled" id="domain_disabled" class="form-control">
+                    {tmpl_var name='domain_disabled'}
+                </select>
+            <tmpl_else>
+                <select name="domain" id="domain" class="form-control">
+                    {tmpl_var name='domain'}
+                </select>
+            </tmpl_if>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="listname" class="col-sm-3 control-label">{tmpl_var name='listname_txt'}</label>
+        <div class="col-sm-6">
+            <tmpl_if name="edit_disabled">
+                <input type="text" class="form-control" name="listname_disabled" id="listname_disabled" value="{tmpl_var name='listname_disabled'}" maxlength="255">
+            <tmpl_else>
+                <input type="text" class="form-control" name="listname" id="listname" value="{tmpl_var name='listname'}" maxlength="255">
+            </tmpl_if>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">{tmpl_var name='email_txt'}</label>
+        <div class="col-sm-6">
+            <tmpl_if name="edit_disabled">
+                <input type="text" class="form-control" name="email_disabled" id="email_disabled" value="{tmpl_var name='email_disabled'}" maxlength="255">
+            <tmpl_else>
+                <input type="text" class="form-control" name="email" id="email" value="{tmpl_var name='email'}" maxlength="255">
+            </tmpl_if>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">{tmpl_var name='password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="password" autocomplete="off" onkeyup="pass_check(this.value);checkPassMatch('password','repeat_password');">
+        </div>
+        <div class="col-sm-3">
+        <span class="help-block">
+            <a href="javascript:void(0);" onclick="generatePassword('password','repeat_password');">{tmpl_var name='generate_password_txt'}</a>
+        </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="repeat_password" class="col-sm-3 control-label">{tmpl_var name='repeat_password_txt'}</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" id="repeat_password" autocomplete="off" onkeyup="checkPassMatch('passwort','repeat_password');">
+            <span class="help-block">
+                <p id="confirmpasswordError" style="display:none;" class="text-danger">{tmpl_var name='password_mismatch_txt'}</p>
+                <p id="confirmpasswordOK" style="display:none;" class="text-success">{tmpl_var name='password_match_txt'}</p>
+            </span>
+        </div>
+        <div class="col-sm-3">
+            <span class="help-block">
+                <div hidden id="passBar"></div>
+                <p class="formHint"><span id="passText">&nbsp;</span></p>
+            </span>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','mail/mail_mailinglist_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('mail/mail_mailinglist_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

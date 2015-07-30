@@ -1,0 +1,55 @@
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label for="tempvak" class="col-sm-3 control-label">{tmpl_var name='rulename_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="tempva1" id="tempva1" value="{tmpl_var name='tempva1'}" maxlength="255">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='source_txt'}</label>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <select name="source" id="source" class="form-control">
+                    {tmpl_var name='source'}
+                </select>
+                <select name="op" id="op" class="form-control">
+                    {tmpl_var name='op'}
+                </select>
+                <input type="text" class="form-control" name="searchterm" id="searchterm" value="{tmpl_var name='searchterm'}" maxlength="255">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='action_txt'}</label>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <select name="action" id="action" class="form-control">
+                    {tmpl_var name='action'}
+                </select>
+                <input type="text" class="form-control" name="target" id="target" value="{tmpl_var name='target'}" maxlength="255">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{tmpl_var name='active_txt'}</label>
+        <div class="col-sm-6">
+            <div class="checkbox">
+                {tmpl_var name='active'}
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+    <input name="mailuser_id" type="hidden" value="{tmpl_var name='mailuser_id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','mail/mail_user_filter_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('mail/mail_user_edit.php?id={tmpl_var name='mailuser_id'}');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>

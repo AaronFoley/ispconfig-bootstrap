@@ -1,0 +1,62 @@
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label for="spam_tag_level" class="col-sm-3 control-label">{tmpl_var name='spam_tag_level_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_tag_level" id="spam_tag_level" value="{tmpl_var name='spam_tag_level'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_tag2_level" class="col-sm-3 control-label">{tmpl_var name='spam_tag2_level_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_tag2_level" id="spam_tag2_level" value="{tmpl_var name='spam_tag2_level'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_kill_level" class="col-sm-3 control-label">{tmpl_var name='spam_kill_level_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_kill_level" id="spam_kill_level" value="{tmpl_var name='spam_kill_level'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_dsn_cutoff_level" class="col-sm-3 control-label">{tmpl_var name='spam_dsn_cutoff_level_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_dsn_cutoff_level" id="spam_dsn_cutoff_level" value="{tmpl_var name='spam_dsn_cutoff_level'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_quarantine_cutoff_level" class="col-sm-3 control-label">{tmpl_var name='spam_quarantine_cutoff_level_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_quarantine_cutoff_level" id="spam_quarantine_cutoff_level" value="{tmpl_var name='spam_quarantine_cutoff_level'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_modifies_subj" class="col-sm-3 control-label">{tmpl_var name='spam_modifies_subj_txt'}</label>
+        <div class="col-sm-6">
+            <select name="spam_modifies_subj" id="spam_modifies_subj" class="form-control">
+                {tmpl_var name='spam_modifies_subj'}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_subject_tag" class="col-sm-3 control-label">{tmpl_var name='spam_subject_tag_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_subject_tag" id="spam_subject_tag" value="{tmpl_var name='spam_subject_tag'}" maxlength="255">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="spam_subject_tag2" class="col-sm-3 control-label">{tmpl_var name='spam_subject_tag2_txt'}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="spam_subject_tag2" id="spam_subject_tag2" value="{tmpl_var name='spam_subject_tag2'}" maxlength="255">
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="{tmpl_var name='id'}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','mail/spamfilter_policy_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
+            <button class="btn btn-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('mail/spamfilter_policy_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
+        </div>
+    </div>
+</div>
